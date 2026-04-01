@@ -1,0 +1,21 @@
+import { ChatGoogle } from "@langchain/google";
+import { ChatMistralAI } from "@langchain/mistralai";
+import { ChatCohere } from "@langchain/cohere";
+import configs from "../config/config.js";
+
+export const geminimodel = new ChatGoogle({
+    apiKey: configs.GEMINI_API_KEY,
+    model: 'gemini-flash-latest'
+});
+
+export const mistralmodel = new ChatMistralAI({
+    apiKey: configs.MISTRAL_API_KEY,
+    model: 'mistral-medium-latest'
+});
+
+
+
+export const coheremodel = new ChatCohere({ 
+    apiKey: configs.COHERE_API_KEY,
+    model: "command-r-plus-08-2024",
+})
