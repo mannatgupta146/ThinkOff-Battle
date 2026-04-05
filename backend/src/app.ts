@@ -1,6 +1,6 @@
 import e from 'express';
 import express from 'express';
-import useGraph from './services/graph.service.js'
+import runGraph from './services/graph.service.js';
 
 const app = express();
 
@@ -10,8 +10,9 @@ app.get('/health', (req, res) => {
     res.send('ThinkOff Battle Backend is running!');
 });
 
-app.post('/use-graph', async (req, res) => {
-    await useGraph("wap to give factorail of a number in js")
+app.get('/use-graph', async (req, res) => {
+    const result = await runGraph('Write a Js function to check if a number is prime.');
+    res.json(result);
 });
 
 export default app;
